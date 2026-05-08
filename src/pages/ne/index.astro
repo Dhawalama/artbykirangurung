@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomePage from '../../components/HomePage.astro';
+import { siteContent } from '../../data/siteContent';
+const content = siteContent.ne;
+---
+<BaseLayout title={content.title} description={content.description} lang={content.htmlLang}>
+  <HomePage content={content} />
+</BaseLayout>

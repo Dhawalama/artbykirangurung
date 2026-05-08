@@ -1,0 +1,24 @@
+---
+const { shop } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const asset = (path) => `${base}${path}`;
+---
+<section id="shop" class="shop">
+  <div class="container">
+    <div class="section-label">{shop.label}</div>
+    <div class="intro-grid">
+      <h2>{shop.heading}</h2>
+      <p class="lead">{shop.lead}</p>
+    </div>
+    <div class="product-grid">
+      {shop.products.map((product) => (
+        <article class="product-card">
+          <a href={product.url}>
+            <div class="product-image"><img src={asset(product.image)} alt={product.name} /></div>
+            <div class="product-info"><div><h3>{product.name}</h3><p>{product.type}</p></div><p class="product-price">{product.price}</p></div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

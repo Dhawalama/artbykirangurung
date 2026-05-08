@@ -1,0 +1,26 @@
+---
+const { calendar } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const asset = (path) => `${base}${path}`;
+const cardClass = ['one', 'two', 'three'];
+---
+<section id="calendars" class="calendar">
+  <div class="container calendar-grid">
+    <div class="calendar-stack" aria-label="Calendar artwork preview">
+      {calendar.images.map((image, index) => (
+        <div class:list={["calendar-card", cardClass[index] ?? 'one']}>
+          <img src={asset(image)} alt={`Calendar artwork preview ${index + 1}`} />
+        </div>
+      ))}
+    </div>
+    <div>
+      <div class="section-label">{calendar.label}</div>
+      <h2>{calendar.heading}</h2>
+      <p class="lead" style="margin-top: 28px;">{calendar.lead}</p>
+      <div style="margin-top: 30px;">
+        {calendar.pills.map((pill) => <span class="pill">{pill}</span>)}
+      </div>
+      <a class="button" style="margin-top: 22px;" href={calendar.ctaUrl} target="_blank" rel="noreferrer">{calendar.cta} <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>

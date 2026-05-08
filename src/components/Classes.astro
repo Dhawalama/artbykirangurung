@@ -1,0 +1,22 @@
+---
+const { classes } = Astro.props;
+---
+<section id="classes" class="classes">
+  <div class="container">
+    <div class="section-label">{classes.label}</div>
+    <div class="section-heading-row">
+      <h2>{classes.heading}</h2>
+      <a href="#classes" class="text-link">{classes.linkLabel} <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="class-grid">
+      {classes.items.map((item) => (
+        <article class="class-card">
+          <span class="quiet-icon" aria-hidden="true">◦</span>
+          <p class="meta">{item.meta}</p>
+          <h3>{item.title}</h3>
+          <p class="desc">{item.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

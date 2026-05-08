@@ -1,0 +1,26 @@
+---
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import GalleryGrid from './GalleryGrid.astro';
+import Marquee from './Marquee.astro';
+import CalendarFeature from './CalendarFeature.astro';
+import Commissions from './Commissions.astro';
+import Classes from './Classes.astro';
+import ShopPreview from './ShopPreview.astro';
+import Footer from './Footer.astro';
+import Lightbox from './Lightbox.astro';
+
+const { content } = Astro.props;
+---
+<Header content={content} />
+<main>
+  <Hero hero={content.hero} />
+  <GalleryGrid gallery={content.gallery} />
+  <Marquee items={content.marquee} />
+  <CalendarFeature calendar={content.calendar} />
+  <Commissions commissions={content.commissions} />
+  <Classes classes={content.classes} />
+  <ShopPreview shop={content.shop} />
+</main>
+<Footer content={content} />
+<Lightbox />

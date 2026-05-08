@@ -1,0 +1,10 @@
+---
+const { items } = Astro.props;
+const text = items.map((item) => `${item} <b class="marquee-dot">·</b>`).join(' ');
+---
+<section class="marquee" aria-label="Portfolio categories">
+  <div class="marquee-track">
+    <span set:html={text}></span>
+    <span set:html={text}></span>
+  </div>
+</section>

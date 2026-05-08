@@ -1,0 +1,21 @@
+---
+const { commissions } = Astro.props;
+---
+<section id="commissions" class="commissions">
+  <div class="container commission-grid">
+    <div class="commission-copy">
+      <div class="section-label">{commissions.label}</div>
+      <h2>{commissions.heading}</h2>
+      <p class="lead">{commissions.lead}</p>
+      <div class="commission-note">{commissions.note}</div>
+    </div>
+    <form class="commission-form" action={commissions.formAction} method="POST">
+      <label>{commissions.fields.name}<input type="text" name="name" required /></label>
+      <label>{commissions.fields.email}<input type="email" name="email" required /></label>
+      <label>{commissions.fields.type}<input type="text" name="commission_type" placeholder={commissions.fields.typePlaceholder} /></label>
+      <label>{commissions.fields.timeline}<input type="text" name="timeline" /></label>
+      <label>{commissions.fields.message}<textarea name="message" required></textarea></label>
+      <button type="submit" class="button">{commissions.fields.submit} <span aria-hidden="true">✉</span></button>
+    </form>
+  </div>
+</section>

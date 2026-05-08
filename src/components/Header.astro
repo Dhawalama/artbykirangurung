@@ -1,0 +1,17 @@
+---
+const { content } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const alternateHref = `${base}${content.alternateHref}`;
+---
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="wordmark">Art by Kiran Gurung<span class="red-dot"></span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      {content.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="header-actions">
+      <a class="lang-switch" href={alternateHref}>{content.alternateLabel}</a>
+      <a href="#commissions" class="header-cta">{content.headerCta}</a>
+    </div>
+  </div>
+</header>

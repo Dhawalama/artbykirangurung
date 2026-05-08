@@ -1,0 +1,32 @@
+---
+const { gallery } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const asset = (path) => `${base}${path}`;
+---
+<section id="portraits" class="container">
+  <div class="section-label">{gallery.label}</div>
+  <div class="intro-grid">
+    <h2>{gallery.heading}</h2>
+    <p class="lead">{gallery.lead}</p>
+  </div>
+  <span id="murals" aria-hidden="true"></span>
+  <span id="digital-art" aria-hidden="true"></span>
+  <div class="gallery-grid">
+    {gallery.items.map((item) => (
+      <article
+        class:list={["gallery-item", item.span]}
+        tabindex="0"
+        data-lightbox
+        data-title={item.title}
+        data-category={item.category}
+        data-src={asset(item.image)}
+      >
+        <img src={asset(item.image)} alt={item.title} />
+        <div class="gallery-overlay">
+          <div><p>{item.category}</p><h3>{item.title}</h3></div><span class="zoom-mark">+</span>
+        </div>
+      </article>
+    ))}
+  </div>
+  <blockquote class="pull-quote">{gallery.quote}</blockquote>
+</section>
