@@ -44,12 +44,6 @@ This project currently uses:
 Astro 5
 ```
 
-Do not run:
-
-```bash
-npm audit fix --force
-```
-
 ---
 
 ## Credits
